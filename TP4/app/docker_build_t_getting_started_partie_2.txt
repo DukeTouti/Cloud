@@ -1,0 +1,47 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  4.626MB
+Step 1/5 : FROM node:18-alpine
+18-alpine: Pulling from library/node
+25ff2da83641: Pulling fs layer
+dd71dde834b5: Pulling fs layer
+f18232174bc9: Pulling fs layer
+1e5a4c89cee5: Pulling fs layer
+25ff2da83641: Download complete
+1e5a4c89cee5: Download complete
+27e1cfd0b5f2: Download complete
+0758d11b0bb7: Download complete
+f18232174bc9: Download complete
+f18232174bc9: Pull complete
+dd71dde834b5: Download complete
+25ff2da83641: Pull complete
+1e5a4c89cee5: Pull complete
+dd71dde834b5: Pull complete
+Digest: sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+Status: Downloaded newer image for node:18-alpine
+ ---> 8d6421d663b4
+Step 2/5 : WORKDIR /app
+ ---> Running in ea5a23fcf5d2
+ ---> Removed intermediate container ea5a23fcf5d2
+ ---> a2d5bbe4e485
+Step 3/5 : COPY . .
+ ---> 6f1663c28c2a
+Step 4/5 : RUN yarn install --production
+ ---> Running in b4d88b980239
+yarn install v1.22.22
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+Done in 6.64s.
+ ---> Removed intermediate container b4d88b980239
+ ---> 24a24cd36c2c
+Step 5/5 : CMD ["node", "src/index.js"]
+ ---> Running in 869cf67a145c
+ ---> Removed intermediate container 869cf67a145c
+ ---> 6dbeaf6a9c7d
+Successfully built 6dbeaf6a9c7d
+Successfully tagged getting-started:latest
+
