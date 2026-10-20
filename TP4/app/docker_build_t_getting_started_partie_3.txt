@@ -1,0 +1,29 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  4.629MB
+Step 1/5 : FROM node:18-alpine
+ ---> 8d6421d663b4
+Step 2/5 : WORKDIR /app
+ ---> Using cache
+ ---> a2d5bbe4e485
+Step 3/5 : COPY . .
+ ---> 6c004425c02e
+Step 4/5 : RUN yarn install --production
+ ---> Running in 26973449bc54
+yarn install v1.22.22
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+Done in 28.64s.
+ ---> Removed intermediate container 26973449bc54
+ ---> 198be8ae26c8
+Step 5/5 : CMD ["node", "src/index.js"]
+ ---> Running in 53c35f1b6390
+ ---> Removed intermediate container 53c35f1b6390
+ ---> b651a53f95bd
+Successfully built b651a53f95bd
+Successfully tagged getting-started:latest
+
