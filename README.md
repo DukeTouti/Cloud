@@ -8,6 +8,9 @@ TP2 : AI PaaS Services : Azure AI Vision, Microsoft Foundry et appels REST ;
 
 TP3 : Load Balancer with Azure : site web à charge répartie sur deux machines virtuelles ;
 
+TP4, Partie 1 : Docker : exécuter, construire, partager et rendre persistants des conteneurs ;
+
+TP4, Partie 2 : Docker : déployer un conteneur dans Azure (Container Instances et Container Apps) ;
 
 
 
