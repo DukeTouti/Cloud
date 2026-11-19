@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>EDT S{{ semaine }} — {{ filiere }}</title>
+    <style>
+        body  { font-family: sans-serif; max-width: 900px; margin: 30px auto; }
+        h1    { font-size: 1.3rem; }
+        .nav  { display: flex; gap: 10px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+        select, button { padding: 6px 10px; font-size: 0.95rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+        th    { background: #f0f0f0; }
+        .CM   { background: #e8f4fd; }
+        .CC   { background: #fdecea; }
+        .TP   { background: #e8fdf0; }
+        .TD   { background: #fdf8e8; }
+        .back { font-size: 0.85rem; color: #555; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <a class="back" href="/">← Modifier ma sélection</a>
+    <h1>{{ filiere }} · TP{{ groupe_tp }} · TD{{ groupe_td }} · Semaine {{ semaine }}/{{ annee }}</h1>
+
+    <form class="nav" method="get" action="/edt">
+        <input type="hidden" name="filiere"   value="{{ filiere }}">
+        <input type="hidden" name="groupe_tp" value="{{ groupe_tp }}">
+        <input type="hidden" name="groupe_td" value="{{ groupe_td }}">
+        <label>Semaine :
+            <select name="semaine" onchange="this.form.submit()">
+                {% for s, a in semaines_dispo %}
+                    <option value="{{ s }}" {% if s == semaine %}selected{% endif %}>
+                        S{{ s }} / {{ a }}
+                    </option>
+                {% endfor %}
+            </select>
+        </label>
+    </form>
+
+    {% if seances %}
+    <table>
+        <thead>
+            <tr>
+                <th>Jour</th>
+                <th>Horaire</th>
+                <th>Type</th>
+                <th>Matière</th>
+                <th>Prof</th>
+                <th>Salle</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in seances %}
+            <tr class="{{ s[4] }}">
+                <td>{{ s[0] }}</td>
+                <td>{{ s[1].strftime('%H:%M') }} – {{ s[2].strftime('%H:%M') }}</td>
+                <td><strong>{{ s[4] }}{% if s[4] in ('TP','TD') %}{{ groupe_tp if s[4]=='TP' else groupe_td }}{% endif %}</strong></td>
+                <td>{{ s[3] }}</td>
+                <td>{{ s[5] or '—' }}</td>
+                <td>{{ s[6] or '—' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>Aucune séance pour cette semaine.</p>
+    {% endif %}
+</body>
+</html>
+
+
+
+
