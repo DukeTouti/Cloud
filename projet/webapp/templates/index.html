@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>EDT Personnalisé</title>
+    <style>
+        body { font-family: sans-serif; max-width: 480px; margin: 60px auto; }
+        select, button { padding: 8px 12px; margin: 4px 0; width: 100%; font-size: 1rem; }
+        .error { color: red; }
+        label { display: block; margin-top: 12px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🗓 EDT ING4</h1>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <form action="/edt" method="get">
+        <label>Filière</label>
+        <select name="filiere">
+            <option value="CYB">CYB — Cybersécurité</option>
+            <option value="GL">GL — Génie Logiciel</option>
+            <option value="IOS">IOS — IoT & Systèmes embarqués</option>
+        </select>
+
+        <label>Groupe TP</label>
+        <select name="groupe_tp">
+            <option value="A">TPA</option>
+            <option value="B">TPB</option>
+            <option value="C">TPC</option>
+            <option value="D">TPD</option>
+            <option value="E">TPE</option>
+        </select>
+
+        <label>Groupe TD</label>
+        <select name="groupe_td">
+            <option value="A">TDA</option>
+            <option value="B">TDB</option>
+            <option value="C">TDC</option>
+            <option value="D">TDD</option>
+        </select>
+
+        <button type="submit" style="margin-top: 20px">Voir mon EDT</button>
+    </form>
+</body>
+</html>
