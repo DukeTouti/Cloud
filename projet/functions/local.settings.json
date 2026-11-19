@@ -1,0 +1,12 @@
+{
+	"IsEncrypted": false,
+	"Values": {
+		"AzureWebJobsStorage": "UseDevelopmentStorage=true",
+		"FUNCTIONS_WORKER_RUNTIME": "python",
+		"AZURE_STORAGE_CONNECTION_STRING": "<ta_chaine_blob>",
+		"SQL_SERVER": "<serveur>.database.windows.net",
+		"SQL_DATABASE": "edt-db",
+		"SQL_USER": "edt-admin",
+		"SQL_PASSWORD": "<mot_de_passe>"
+	}
+}
